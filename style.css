@@ -16,21 +16,23 @@ body{
     font-size: 14px;
 }
 
-.seat{
-    background-color: rgb(248, 69, 99);
-    width: 15px;
-    height: 12px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    margin: 5px 2px;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer;
+
+/* movie selector */
+.movie-container{
+    perspective: 1000px;
 }
 .movie-container label{
     font-weight: 500;
 }
+.movie-container select{
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 10px;
+   padding: 5px;
+   }
+
+
+/*  State of seats*/
 ul{
     display: flex;
     justify-content: space-between;
@@ -39,10 +41,6 @@ ul{
     border: 10px;
     width: 100%;
     padding: 5px;
-}
-
-.movie-container{
-    perspective: 1000px;
 }
 li{
     margin: 0 10px;
@@ -53,6 +51,9 @@ li{
 li small{
     margin-left: 10px;
 }
+
+
+/* Seats */
 .screen{
     background-color: black;
     width: 100%;
@@ -60,6 +61,17 @@ li small{
     margin: 15px 0;
     transform: rotateX(-45deg);
     box-shadow: 0 3px 10px rgba(207, 83, 83, 0.75);
+}
+.seat{
+    background-color: rgb(248, 69, 99);
+    width: 15px;
+    height: 12px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin: 5px 2px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 .seat.selected{
     background-color: rgb(119, 6, 6);
@@ -71,28 +83,26 @@ li small{
 .row{
     display: flex;
 }
+.row .seat{
+    cursor: pointer;
+}
 .seat:nth-of-type(2){
     margin-right: 10px;
 }
-
 .seat:nth-last-of-type(3){
     margin-right: 10px;
 }
 .show .seat{
     margin: 0;
 }
+
+/* Counts and confirm button */
 p.text{
     margin: 5px 0;
     color: #fff;
 }
 p span{
     color: brown;
-}
-.movie-container select{
- background-color: #fff;
- border-radius: 5px;
- font-size: 10px;
-padding: 5px;
 }
 
 button{
@@ -111,6 +121,7 @@ button:hover{
     color: #220202;
 }
 
+/* Alert Box */
 .modal{
     background-color: #fff;
     width: 200px;
@@ -128,6 +139,11 @@ button:hover{
     top: 15%;
     left: 90%;
 }
+.close{
+    cursor: pointer;
+}
+
+/* Tablets  screen sizes */
 @media screen and (min-width: 400px) {
     .seat{
         width: 18px;
@@ -146,6 +162,7 @@ button:hover{
     }
 }
 
+/* laptop screen sizes */
 @media screen and (min-width: 800px) {
     .seat{
         width: 20px;

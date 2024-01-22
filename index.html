@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Movie Selector -->
     <div class="movie-container">
         <label for="movies"> Pick a movie</label>
         <select name="movie-selector" id="movies">
@@ -17,6 +19,7 @@
         </select>
     </div>
 
+    <!-- State of seats -->
     <ul class="show">
         <li>
             <div class="seat"></div>
@@ -34,6 +37,7 @@
         </li>
     </ul>
 
+    <!-- Seats -->
     <div class="seat-container">
       <div class="screen"></div>
         <div class="row">
@@ -98,11 +102,13 @@
         </div>
     </div>
      
+    <!-- Counts and confirm button-->
     <p class="text">You have selected <span id="count">0</span> 
         seats for a price of <span id="total">$0</span></p>
 
     <button type="submit" id="btn">Confirm</button> 
 
+    <!-- Alert Box -->
     <section class="modal">
         <img src="./images/icon-menu-close.svg" class="close" alt="close"> 
         Your booking has been confirmed.</section> 

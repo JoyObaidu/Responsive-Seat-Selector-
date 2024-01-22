@@ -9,6 +9,7 @@ const modal = document.querySelector('.modal');
 
 let ticketPrice = +movieSelector.value;
 populateUI();
+
 //get data from localstorage and populate the UI
 function populateUI() {
      const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
@@ -55,7 +56,7 @@ function updateSelectedCount() {
 movieSelector.addEventListener('change', (e) =>{
      ticketPrice = +e.target.value;
      console.log(e.target.selectedIndex, e.target.value);
-     updateSelectedCount();
+     // updateSelectedCount();
 });
 
 
@@ -69,13 +70,13 @@ container.addEventListener('click', (e) => {
    updateSelectedCount();
 });
 
+//confirmation of selected seats
 confirmBtn.addEventListener('click', (e) => {
      modal.style.display = 'block';
-     if () {
-          
-     }
+    populateUI();
 });
-
+   
+//close  confirmation box
 closeModal.addEventListener('click', (e) => {
      modal.style.display = 'none';
 });
