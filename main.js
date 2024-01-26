@@ -72,13 +72,37 @@ container.addEventListener('click', (e) => {
 
 //confirmation of selected seats
 confirmBtn.addEventListener('click', (e) => {
-     modal.style.display = 'block';
+      // Iterate through selected seats and mark them as occupied
+      const selectedSeats = document.querySelectorAll('.row .seat.selected');
+      selectedSeats.forEach(seat => {
+          seat.classList.remove('selected');
+          seat.classList.add('occupied');
+      });
+  
+      // Display the confirmation modal
+      modal.style.display = 'block';
+  
+      // Update the count and total
+      updateSelectedCount();
+  
     populateUI();
+
+      // Save the updated state to localStorage
+      const updatedOccupiedSeats = JSON.parse(localStorage.getItem('occupiedSeats')) || [];
+      selectedSeats.forEach(seat => {
+          const seatIndex = [...seats].indexOf(seat);
+          if (!updatedOccupiedSeats.includes(seatIndex)) {
+              updatedOccupiedSeats.push(seatIndex);
+          }
+      });
+      localStorage.setItem('occupiedSeats', JSON.stringify(updatedOccupiedSeats));
+      populateUI();
 });
    
-//close  confirmation box
-closeModal.addEventListener('click', (e) => {
+  closeModal.addEventListener('click', (e)=> {
      modal.style.display = 'none';
-});
+  });
 
-updateSelectedCount();
+
+
+
